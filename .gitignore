@@ -1,0 +1,13 @@
+*/*
+
+!guides/*
+!scripts/*
+!wallpapers/*
+!.vim/*
+
+!.vim/bundle
+
+!dwm/config.h
+!slock/config.h
+!slstatus/config.h
+!st/config.h

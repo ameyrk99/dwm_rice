@@ -1,0 +1,1 @@
+/home/mark/.dwm/scripts/autostart.sh
