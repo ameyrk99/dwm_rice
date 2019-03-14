@@ -10,11 +10,6 @@ static const char *fonts[]          = { "Monofur:size=12" };
 static const char dmenufont[]       = "Monofur:size=12";
 
 #include "/home/mark/.dwm/colors.h"
-/* static const char col_gray1[]       = "#2a2e38";
- * static const char col_gray2[]       = "#808080";
- * static const char col_gray3[]       = "#e6e6e6";
- * static const char col_gray4[]       = "#f0fdff";
- * static const char col_theme[]       = "#6f98b3"; */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
