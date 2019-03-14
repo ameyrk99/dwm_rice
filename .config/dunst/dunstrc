@@ -33,7 +33,7 @@
 
 [frame]
     width = 2
-    color = "#eceff1"
+    color = "#82aaff"
 
 [shortcuts]
     close = mod4+x
