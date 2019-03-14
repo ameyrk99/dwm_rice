@@ -1,0 +1,58 @@
+[global]
+    alignment = left
+    allow_markup = yes
+    bounce_freq = 0
+    browser = /usr/bin/firefox --new-tab
+    dmenu = /usr/bin/dmenu -p dunst:
+    follow = none
+    font = Space Mono 11
+    format = "%I<b>%a\n</b>%s"
+    icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
+    # geometry [{width}]x{height}][+/-{x}+/-{y}]
+    geometry = "300x8-8+30"
+    history_length = 20
+    horizontal_padding = 8
+    idle_threshold = 120
+    ignore_newline = no
+    indicate_hidden = yes
+    icons_show = left
+    show_icons = yes
+    line_height = 0
+    monitor = 0
+    padding = 5
+    separator_color = frame
+    separator_height = 1
+    show_age_threshold = 60
+    show_indicators = yes
+    shrink = no
+    sort = yes
+    startup_notification = false
+    sticky_history = no
+    transparency = 0
+    word_wrap = no
+
+[frame]
+    width = 2
+    color = "#eceff1"
+
+[shortcuts]
+    close = mod4+x
+    close_all = mod4+ctrl+x
+    history = mod4+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#292d3e"
+    foreground = "#eceff1"
+    timeout = 8
+
+[urgency_normal]
+    background = "#292d3e"
+    foreground = "#eceff1"
+    timeout = 10
+
+[urgency_critical]
+    background = "#ff5370"
+    foreground = "#292d3e"
+    timeout = 13
+

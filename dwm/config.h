@@ -8,15 +8,17 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Monofur:size=12" };
 static const char dmenufont[]       = "Monofur:size=12";
-static const char col_gray1[]       = "#2a2e38";
-static const char col_gray2[]       = "#808080";
-static const char col_gray3[]       = "#e6e6e6";
-static const char col_gray4[]       = "#f0fdff";
-static const char col_cyan[]        = "#6f98b3";
+
+#include "/home/mark/.dwm/colors.h"
+/* static const char col_gray1[]       = "#2a2e38";
+ * static const char col_gray2[]       = "#808080";
+ * static const char col_gray3[]       = "#e6e6e6";
+ * static const char col_gray4[]       = "#f0fdff";
+ * static const char col_theme[]       = "#6f98b3"; */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_theme, col_theme  },
 };
 
 /* tagging */
@@ -68,7 +70,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_theme, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "termite", NULL };
 
 static const char *ffoxcmd[] = { "firefox", NULL };
@@ -82,6 +84,8 @@ static const char *volumemute[] = { "amixer", "-q", "-D", "pulse", "sset", "Mast
 static const char *powermenucmd[] =   { "/home/mark/.dwm/scripts/powermenu.sh", NULL };
 static const char *displaymenucmd[] = { "/home/mark/.dwm/scripts/displaymenu.sh", NULL };
 static const char *screenshotcmd[] =  { "/home/mark/.dwm/scripts/screenshot.sh", NULL };
+
+#include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -117,9 +121,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODSUP|ControlMask,           XK_k,      spawn,          {.v = volumeup } },
-    { MODSUP|ControlMask,           XK_d,      spawn,          {.v = volumedown } },
-    { MODSUP|ControlMask,           XK_h,      spawn,          {.v = volumemute } },
+    { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = volumedown } },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = volumemute } },
+    { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volumeup } },
     { MODKEY|ControlMask,           XK_p,      spawn,          {.v = powermenucmd } },
     { MODKEY|ControlMask,           XK_m,      spawn,          {.v = displaymenucmd } },
     { MODKEY|ControlMask,           XK_s,      spawn,          {.v = screenshotcmd } },
@@ -132,7 +136,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_l,      quit,           {0} },
 };
 
 /* button definitions */

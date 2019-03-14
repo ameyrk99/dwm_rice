@@ -2,10 +2,11 @@
 static const char *user  = "mark";
 static const char *group = "wheel";
 
+#include "/home/mark/.dwm/colors.h"
 static const char *colorname[NUMCOLS] = {
-	[INIT] =   "#2a2e38",   /* after initialization */
-	[INPUT] =  "#6f98b3",   /* during input */
-	[FAILED] = "#d09785",   /* wrong password */
+	[INIT] =   col_gray1,   /* after initialization */
+	[INPUT] =  col_theme,   /* during input */
+	[FAILED] = col_urgn,   /* wrong password */
 };
 
 /* treat a cleared input like a wrong password (color) */

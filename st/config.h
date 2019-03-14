@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Monofur:pixelsize=17:antialias=true:autohint=true";
+static char *font = "Monofur:size=13:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -85,65 +85,32 @@ unsigned int tabspaces = 4;
 /* bg opacity */
 unsigned int alpha = 0xff;
 
-// static const char *colorname[] = {
-//     "#282a36", [> hard contrast: #000000 / soft contrast: #282a36 <]
-//     "#ff5555",
-//     "#50fa7b",
-//     "#f1fa8c",
-//     "#bd93f9",
-//     "#ff79c6",
-//     "#8be9fd",
-//     "#bfbfbf",
-//     "#282a36",
-//     "#ff6e67",
-//     "#5af78e",
-//     "#f4f99d",
-//     "#caa9fa",
-//     "#ff92d0",
-//     "#9aedfe",
-//     "#e6e6e6",
-//     [255] = 0,
-//     [> more colors can be added after 255 to use with DefaultXX <]
-//     "black",   [> 256 -> bg <]
-//     "white",   [> 257 -> fg <]
-// };
-//
-//
-/*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
-// unsigned int defaultfg = 15;
-// unsigned int defaultbg = 0;
-// static unsigned int defaultcs = 15;
-// static unsigned int defaultrcs = 0;
-//
 const char *colorname[] = {
 
-  /* 8 normal colors */
-  [0] = "#2a2e38", /* black   */
-  [1] = "#d08785", /* red     */
-  [2] = "#fdf8ce", /* green   */
-  [3] = "#f8cc7d", /* yellow  */
-  [4] = "#6f98b3", /* blue    */
-  [5] = "#fcdbd9", /* magenta */
-  [6] = "#04f0f1", /* cyan    */
-  [7] = "#f0fdff", /* white   */
+    /* 8 normal colors */
+    [0] = "#546e7a", /* black   */
+    [1] = "#ff5370", /* red     */
+    [2] = "#c3e88d", /* green   */
+    [3] = "#ffcb6b", /* yellow  */
+    [4] = "#82aaff", /* blue    */
+    [5] = "#c792ea", /* magenta */
+    [6] = "#89ddff", /* cyan    */
+    [7] = "#ffffff", /* white   */
 
-  /* 8 bright colors */
-  [8]  = "#808080",  /* black   */
-  [9]  = "#d08785",  /* red     */
-  [10] = "#fdf8ce", /* green   */
-  [11] = "#f8cc7d", /* yellow  */
-  [12] = "#6f98b3", /* blue    */
-  [13] = "#fcdbd9", /* magenta */
-  [14] = "#04f0f1", /* cyan    */
-  [15] = "#f0fdff", /* white   */
+    /* 8 bright colors */
+    [8]  = "#546e7a",  /* black   */
+    [9]  = "#ff5370",  /* red     */
+    [10] = "#c3e88d", /* green   */
+    [11] = "#ffcb6b", /* yellow  */
+    [12] = "#82aaff", /* blue    */
+    [13] = "#c792ea", /* magenta */
+    [14] = "#89ddff", /* cyan    */
+    [15] = "#ffffff", /* white   */
 
-  /* special colors */
-  [256] = "#2a2e38", /* background */
-  [257] = "#f0fdff", /* foreground */
-  [258] = "#f0fdff",     /* cursor */
+    /* special colors */
+    [256] = "#292d3e", /* background */
+    [257] = "#eceff1", /* foreground */
+    [258] = "#eceff1",     /* cursor */
 };
 
 /* Default colors (colorname index)
@@ -252,7 +219,7 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_Prior,       zoom,           {.f = +1} },
 	{ MODKEY|ShiftMask,     XK_Next,        zoom,           {.f = -1} },
-	{ MODKEY,		XK_Home,	zoomreset,	{.f =  0} },
+	{ MODKEY,		        XK_Home,	zoomreset,	{.f =  0} },
 	{ ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
 	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },
 	{ MODKEY,               XK_v,           clippaste,      {.i =  0} },

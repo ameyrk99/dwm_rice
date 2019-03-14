@@ -4,10 +4,13 @@
 !scripts/*
 !wallpapers/*
 !.vim/*
+!.config/*
+!.fonts/*
 
 !.vim/bundle
 
 !dwm/config.h
+!dwm/patches/
 !slock/config.h
 !slstatus/config.h
 !st/config.h

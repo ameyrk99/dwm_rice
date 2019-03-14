@@ -7,9 +7,11 @@ set nocompatible
 set history=500
 
 " Base 16 theme to use terminal colors
-colorscheme pink-moon
-set termguicolors
 set background=dark
+set termguicolors
+colorscheme material
+let g:material_theme_style = 'palenight'
+let g:material_terminal_italics = 1
 
 filetype plugin on
 filetype indent on
@@ -133,7 +135,7 @@ set laststatus=2
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'material',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
