@@ -9,7 +9,7 @@
     format = "%I<b>%a\n</b>%s"
     icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
     # geometry [{width}]x{height}][+/-{x}+/-{y}]
-    geometry = "300x8-8+30"
+    geometry = "300x8-9+30"
     history_length = 20
     horizontal_padding = 8
     idle_threshold = 120

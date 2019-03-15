@@ -8,10 +8,10 @@ case "$(echo -e "Laptop\nMonitor\nDuplicate\nMonitorRight\nMonitorLeft" | dmenu 
     -sb "#82aaff" \
     -i -p \
     "Display:" )" in
-        Laptop) exec xrandr --output DP-1 --off --output eDP-1 --auto; nitrogen --restore &;;
-        Monitor) exec xrandr --output DP-1 --auto --output eDP-1 --off; nitrogen --restore &;;
-        Duplicate) exec xrandr --output DP-1 --auto --output eDP-1 --auto; nitrogen --restore &;;
-        MonitorRight) exec xrandr --output DP-1 --auto --output eDP-1 --left-of DP-1; nitrogen --restore &;;
-        MonitorLeft) exec xrandr --output DP-1 --auto --output eDP-1 --right-of DP-1; nitrogen --restore &;;
+        Laptop) exec xrandr --output DP-1 --off --output eDP-1 --auto;;
+        Monitor) exec xrandr --output DP-1 --auto --output eDP-1 --off;;
+        Duplicate) exec xrandr --output DP-1 --auto --output eDP-1 --auto;;
+        MonitorRight) exec xrandr --output DP-1 --auto --output eDP-1 --left-of DP-1;;
+        MonitorLeft) exec xrandr --output DP-1 --auto --output eDP-1 --right-of DP-1;;
 esac
 
