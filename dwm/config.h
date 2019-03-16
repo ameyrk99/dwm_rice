@@ -34,15 +34,16 @@ static const Rule rules[] = {
 	{ "Pinta",      NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "Steam",      NULL,       NULL,       1 << 7,       1,           -1 },
 	{ "discord",    NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "spotify",    NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Spotify",    "spotify",  NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 #include "fibonacci.c"
+#include "gaplessgrid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
@@ -50,6 +51,7 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
  	{ "[@]",      spiral },
  	{ "[\\]",     dwindle },
+    { "###",      gaplessgrid },
 	{ NULL,       NULL },
 };
 
@@ -69,6 +71,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_theme, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "termite", NULL };
+static const char *alttermcmd[]  = { "st", NULL };
 
 static const char *ffoxcmd[] = { "firefox", NULL };
 static const char *rangercmd[] = { "st", "ranger", NULL };
@@ -88,6 +91,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODSUP,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alttermcmd } },
     { MODSUP,                       XK_f,      spawn,          {.v = ffoxcmd } },
     { MODSUP,                       XK_w,      spawn,          {.v = rangercmd } },
     { MODSUP,                       XK_i,      spawn,          {.v = gotopcmd } },
@@ -108,6 +112,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
