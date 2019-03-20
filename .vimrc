@@ -230,6 +230,7 @@ autocmd FileType tex map <leader>l i\documentclass[<++>, margin=<++>]{<++>}<CR><
 """"""""""""""""""""""""""""""
 " => C, C++
 """"""""""""""""""""""""""""""
+autocmd FileType c,cpp set colorcolumn=100
 autocmd FileType c,cpp map \mi oint main(int argc, char** argv) {<CR>return 0;}<ESC>3k$/main<CR>,,o
 autocmd FileType c,cpp map \fi o<++>(<++>) {<CR>return <++>;}<Esc>3k$<C-Space>
 autocmd FileType c,cpp map \if oif(<++>) {<CR><++>}<Esc>3k$<C-Space>
