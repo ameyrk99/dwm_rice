@@ -33,7 +33,7 @@
 
 [frame]
     width = 2
-    color = "#82aaff"
+    color = "#ff5370"
 
 [shortcuts]
     close = mod4+x
@@ -52,7 +52,7 @@
     timeout = 10
 
 [urgency_critical]
-    background = "#ff5370"
+    background = "#82aaff"
     foreground = "#292d3e"
     timeout = 13
 
