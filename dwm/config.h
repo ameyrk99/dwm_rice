@@ -18,7 +18,8 @@ static const char *colors[][3]      = {
 
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-static const char *tags[] = { "home", "web", "misc", "dev", "media", "office", "paint", "games", "spotify" };
+/* static const char *tags[] = { "home", "web", "misc", "dev", "media", "office", "paint", "games", "spotify" }; */
+static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -74,6 +75,7 @@ static const char *termcmd[]  = { "termite", NULL };
 static const char *alttermcmd[]  = { "st", NULL };
 
 static const char *ffoxcmd[] = { "firefox", NULL };
+static const char *filescmd[] = { "nautilus", NULL };
 static const char *rangercmd[] = { "st", "ranger", NULL };
 static const char *gotopcmd[] = { "st", "gotop", NULL };
 
@@ -93,6 +95,7 @@ static Key keys[] = {
 	{ MODSUP,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alttermcmd } },
     { MODSUP,                       XK_f,      spawn,          {.v = ffoxcmd } },
+    { MODSUP,                       XK_n,      spawn,          {.v = filescmd } },
     { MODSUP,                       XK_w,      spawn,          {.v = rangercmd } },
     { MODSUP,                       XK_i,      spawn,          {.v = gotopcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

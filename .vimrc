@@ -9,6 +9,7 @@ set history=500
 " Base 16 theme to use terminal colors
 set background=dark
 set termguicolors
+" colorscheme breezy
 colorscheme material
 let g:material_theme_style = 'palenight'
 let g:material_terminal_italics = 1
@@ -135,7 +136,7 @@ set laststatus=2
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 let g:lightline = {
-      \ 'colorscheme': 'material',
+      \ 'colorscheme': 'palenight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -226,6 +227,7 @@ autocmd FileType tex map \ti i\textit{<++>}<Esc>0<C-Space>
 autocmd FileType tex map \ss o\[<CR>\begin{split}<CR>\end{split}<Esc>O<++> & = <++><Esc>jo\]<Esc>3k$<C-Space>
 autocmd FileType tex map \sm o\begin{minipage}<CR><++><CR>\end{minipage}<CR>\begin{minipage}<CR><++><CR>\end{minipage}<Esc>5k$<C-Space>
 autocmd FileType tex map <leader>l i\documentclass[<++>, margin=<++>]{<++>}<CR><CR>\title{<++>}<CR>\author{<++>}<CR><CR>\begin{document}<CR><CR>\maketitle<CR><CR><++><CR>\end{document}<Esc>gg
+autocmd FileType tex map \sf <Esc>:w!<CR>:!pdflatex %<CR><CR>
 
 """"""""""""""""""""""""""""""
 " => C, C++

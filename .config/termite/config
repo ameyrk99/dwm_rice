@@ -1,8 +1,9 @@
 [options]
-# font = SpaceMono 12
-font = monofur 14
+font = IBM 3270 14
+# font = monofur 14
 # font = VT323 15
-
+#
+# Palenight
 [colors]
 
 # special

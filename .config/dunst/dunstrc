@@ -6,7 +6,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
     follow = none
     font = Space Mono 11
-    format = "%I<b>%a\n</b>%s"
+    format = "%I<b>%a\n</b>%b"
     icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
     # geometry [{width}]x{height}][+/-{x}+/-{y}]
     geometry = "300x8-9+30"

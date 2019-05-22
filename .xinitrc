@@ -1,8 +1,10 @@
 #! /bin/bash
 
 exec dwm
-# exec i3
 # exec startkde
+
+# export XDG_CURRENT_DESKTOP=Budgie:GNOME
+# exec budgie-desktop
 
 # print_bat(){
 #     hash acpi || return 0
