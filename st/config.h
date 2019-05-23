@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Monofur:size=13:antialias=true:autohint=true";
+/* static char *font = "Monofur:size=13:antialias=true:autohint=true"; */
+static char *font = "IBM 3270:size=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*

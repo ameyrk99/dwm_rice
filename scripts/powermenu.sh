@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case "$(echo -e "Shutdown\nRestart\nLogout\nSuspend\nLock" | dmenu \
-    -fn "Monofur:size=12" \
+    -fn "IBM 3270:size=14" \
     -nb "${COLOR_BACKGROUND:-#292d3e}" \
     -nf "${COLOR_DEFAULT:-#eceff1}" \
     -sf "${COLOR_HIGHLIGHT:-#ffffff}" \

@@ -1,3 +1,7 @@
+# Disable statusbar. Default is "s"
+set guioptions ""
+# Show a tilde instead of the full home path
+set statusbar-home-tilde "true"
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 2

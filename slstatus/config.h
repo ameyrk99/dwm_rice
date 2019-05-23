@@ -63,10 +63,11 @@ static const char unknown_str[] = "NA";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-    { run_command, " [V %s] ", "/home/mark/.dwm/scripts/volume" },
-    { wifi_perc, " [W %s%%] ", "wlp2s0"},
-    { battery_perc, " [B %s%% ", "BAT0" },
-    { battery_state, "%s] ", "BAT0" },
-    { uptime, " [U %s] ", NULL },
-    { datetime, " [%s] ", "%a, %d %b %T" },
+    { run_command, "  VOL %s |", "/home/mark/.dwm/scripts/volume" },
+    { wifi_perc, " WIFI %s%% |", "wlp2s0"},
+    { battery_perc, " BAT %s%% ", "BAT0" },
+    { battery_state, "%s |", "BAT0" },
+    { username, " %s", NULL },
+    { uptime, " %s |", NULL },
+    { datetime, " %s  ", "%a, %d %b %T" },
 };
