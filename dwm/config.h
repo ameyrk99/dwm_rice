@@ -37,7 +37,7 @@ static const Rule rules[] = {
 	{ "Pinta",      NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "Steam",      NULL,       NULL,       1 << 7,       1,           -1 },
 	{ "discord",    NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "Spotify",    "spotify",  NULL,       1 << 8,       0,           -1 },
+	{ "spotify",    NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -89,10 +89,13 @@ static const char *powermenucmd[] =   { "/home/mark/.dwm/scripts/powermenu.sh", 
 static const char *displaymenucmd[] = { "/home/mark/.dwm/scripts/displaymenu.sh", NULL };
 static const char *screenshotcmd[] =  { "/home/mark/.dwm/scripts/screenshot.sh", NULL };
 
+static const char *flashwindow[] = { "flash_window", NULL };
+
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_n,      spawn,          {.v = flashwindow } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODSUP,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alttermcmd } },
