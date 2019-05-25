@@ -1,4 +1,5 @@
 [options]
+allow_bold = true
 font = IBM 3270 14
 # font = monofur 14
 # font = VT323 15

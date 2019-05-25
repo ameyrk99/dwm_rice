@@ -20,7 +20,6 @@ static const char *colors[][3]      = {
 
 /* tagging */
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-/* static const char *tags[] = { "home", "web", "misc", "dev", "media", "office", "paint", "games", "spotify" }; */
 static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
@@ -74,12 +73,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_theme, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "termite", NULL };
-static const char *alttermcmd[]  = { "st", NULL };
+static const char *alttermcmd[]  = { "urxvt", NULL };
 
 static const char *ffoxcmd[] = { "firefox", NULL };
 static const char *filescmd[] = { "nautilus", NULL };
-static const char *rangercmd[] = { "st", "ranger", NULL };
-static const char *gotopcmd[] = { "st", "gotop", NULL };
+static const char *rangercmd[] = { "urxvt", "-e", "ranger", NULL };
+static const char *htopcmd[] = { "urxvt", "-e", "htop", NULL };
 
 static const char *volumeup[]  = { "amixer", "-q", "sset", "Master", "3+", NULL };
 static const char *volumedown[]  = { "amixer", "-q", "sset", "Master", "3-", NULL };
@@ -102,7 +101,7 @@ static Key keys[] = {
     { MODSUP,                       XK_f,      spawn,          {.v = ffoxcmd } },
     { MODSUP,                       XK_n,      spawn,          {.v = filescmd } },
     { MODSUP,                       XK_w,      spawn,          {.v = rangercmd } },
-    { MODSUP,                       XK_i,      spawn,          {.v = gotopcmd } },
+    { MODSUP,                       XK_i,      spawn,          {.v = htopcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
