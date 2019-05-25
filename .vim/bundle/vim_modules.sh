@@ -1,0 +1,16 @@
+git clone https://github.com/w0rp/ale.git
+git clone https://github.com/jiangmiao/auto-pairs.git
+git clone https://github.com/lilydjwg/colorizer.git
+git clone https://github.com/junegunn/goyo.vim.git
+git clone https://github.com/Yggdroot/indentLine.git
+git clone https://github.com/itchyny/lightline.vim.git
+git clone https://github.com/kaicataldo/material.vim.git
+git clone https://github.com/scrooloose/nerdcommenter.git
+git clone https://github.com/tmhedberg/SimpylFold.git
+git clone https://github.com/ervandew/supertab.git
+git clone https://github.com/vim-syntastic/syntastic.git
+git clone https://github.com/godlygeek/tabular.git
+git clone https://github.com/airblade/vim-gitgutter.git
+git clone https://github.com/terryma/vim-multiple-cursors.git
+git clone https://github.com/mhinz/vim-startify.git
+git clone https://github.com/Valloric/YouCompleteMe.git

@@ -7,7 +7,7 @@
 !.config/*
 !.fonts/*
 
-!.vim/bundle
+!.vim/bundle/vim_modules.sh
 
 !dwm/config.h
 !dwm/patches/
