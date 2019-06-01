@@ -31,9 +31,9 @@
     transparency = 0
     word_wrap = no
 
-[frame]
-    width = 2
-    color = "#82aaff"
+# [frame]
+#     width = 2
+#     color = "#c782ea"
 
 [shortcuts]
     close = mod4+x
@@ -43,12 +43,12 @@
 
 [urgency_low]
     background = "#292d3e"
-    foreground = "#eceff1"
+    foreground = "#c3e88d"
     timeout = 8
 
 [urgency_normal]
     background = "#292d3e"
-    foreground = "#eceff1"
+    foreground = "#c3e88d"
     timeout = 10
 
 [urgency_critical]

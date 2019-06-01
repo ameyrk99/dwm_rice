@@ -29,13 +29,7 @@ static const Rule rules[] = {
 	 */
 	/* class        instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",    NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "Opera",      NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "code-oss",   NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "vlc",        NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "libreoffice",NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "Pinta",      NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "Steam",      NULL,       NULL,       1 << 7,       1,           -1 },
-	{ "discord",    NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "spotify",    NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -82,7 +76,7 @@ static const char *htopcmd[] = { "urxvt", "-e", "htop", NULL };
 
 static const char *volumeup[]  = { "amixer", "-q", "sset", "Master", "3+", NULL };
 static const char *volumedown[]  = { "amixer", "-q", "sset", "Master", "3-", NULL };
-static const char *volumemute[] = { "amixer", "-q", "-D", "pulse", "sset", "Master", "toggle", NULL };
+static const char *volumemute[] = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 
 static const char *powermenucmd[] =   { "/home/mark/.dwm/scripts/powermenu.sh", NULL };
 static const char *displaymenucmd[] = { "/home/mark/.dwm/scripts/displaymenu.sh", NULL };

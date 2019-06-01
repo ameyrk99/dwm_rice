@@ -73,6 +73,7 @@ alias omega="ssh ark7991@omega.uta.edu"
 alias :q="exit"
 alias weather="curl -s https://us.wttr.in  | head -n 17"
 alias swm="sudo wifi-menu"
+alias dvdts="~/go/bin/dvdts"
 
 # wall
 # alias wal2b="wal -q -i ~/.i3/wallpapers/fan_art/2B.png"
@@ -99,6 +100,11 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Go
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$GOPATH:$GOBIN:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
