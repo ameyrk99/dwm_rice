@@ -43,12 +43,12 @@
 
 [urgency_low]
     background = "#292d3e"
-    foreground = "#c3e88d"
+    foreground = "#c782ea"
     timeout = 8
 
 [urgency_normal]
     background = "#292d3e"
-    foreground = "#c3e88d"
+    foreground = "#c782ea"
     timeout = 10
 
 [urgency_critical]
