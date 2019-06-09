@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/mark/.oh-my-zsh"
+export ZSH="/home/mark/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -67,13 +67,12 @@ source $ZSH/oh-my-zsh.sh
 # Change terminal colors
 # (cat ~/.cache/wal/sequences &)
 
-alias colorpanes="~/.i3/scripts/colorpanes.sh"
+# alias colorpanes="~/.i3/scripts/colorpanes.sh"
 alias uta="cd ~/UTA"
 alias omega="ssh ark7991@omega.uta.edu"
 alias :q="exit"
 alias weather="curl -s https://us.wttr.in  | head -n 17"
 alias swm="sudo wifi-menu"
-alias dvdts="~/go/bin/dvdts"
 
 # wall
 # alias wal2b="wal -q -i ~/.i3/wallpapers/fan_art/2B.png"
@@ -84,22 +83,22 @@ alias dvdts="~/go/bin/dvdts"
 # alias waldk="wal -q -i ~/.i3/wallpapers/fan_art/adk.jpg"
 # alias waldual="wal -q -i ~/.i3/wallpapers/tigre.png"
 
-function gitmas() {
+function gitpush() {
+    git status
     git add .
     git commit -m $1
-    git status
-    git push origin master
+    git push origin $2
 }
 
 export BROWSER=/usr/bin/firefox
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
-# Android 
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# # Android
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Go
 export GOPATH=$HOME/go

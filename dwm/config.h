@@ -14,7 +14,7 @@ static const char dmenufont[]       = "IBM 3270:size=14";
 #include "/home/mark/.dwm/colors.h"
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray1, col_theme, col_theme  },
 };
 
@@ -30,6 +30,8 @@ static const Rule rules[] = {
 	/* class        instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",    NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "code-oss",   NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "gimp",       NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "discord",    NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "spotify",    NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -65,7 +67,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_theme, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_theme, "-sf", col_gray1, NULL };
 static const char *termcmd[]  = { "termite", NULL };
 static const char *alttermcmd[]  = { "urxvt", NULL };
 

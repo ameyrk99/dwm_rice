@@ -5,8 +5,8 @@ case "$(echo -e "Laptop\nMonitor\nDuplicate\nMonitorDown\nMonitorUp" | dmenu \
     -nb "${COLOR_BACKGROUND:-#292d3e}" \
     -nb "${COLOR_BACKGROUND:-#292d3e}" \
     -nf "${COLOR_DEFAULT:-#eceff1}" \
-    -sf "${COLOR_HIGHLIGHT:-#ffffff}" \
-    -sb "#c792ea" \
+    -sf "${COLOR_HIGHLIGHT:-#292d3e}" \
+    -sb "#c3e88d" \
     -i -p \
     "Display:" )" in
         Laptop) exec xrandr --output DP-1 --off --output eDP-1 --auto;;
