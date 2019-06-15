@@ -3,10 +3,10 @@
     allow_markup = yes
     bounce_freq = 0
     browser = /usr/bin/firefox --new-tab
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/dmenu -fn "IBM 3270:size=14" -nb "#292d3e" -nb "#292d3e" -nf "#eceff1" -sf "#292d3e" -sb "#c3e88d" -p dunst:
     follow = none
-    font = Space Mono 11
-    format = "%I<b>%a\n</b>%b"
+    font = IBM 3270 12
+    format = "<b>%a\n</b><i>%s\n</i>%b"
     icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
     # geometry [{width}]x{height}][+/-{x}+/-{y}]
     geometry = "300x8-9+30"

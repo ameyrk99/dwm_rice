@@ -2,8 +2,8 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappx     = 5;        /* Gap size */
+static const unsigned int snap      = 30;       /* snap pixel */
+static const unsigned int gappx     = 10;        /* Gap size */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "IBM 3270:size=14" };
@@ -26,10 +26,10 @@ static const Rule rules[] = {
 	 */
 	/* class        instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",    NULL,       NULL,       1 << 1,       0,           -1 },
+    { "Spotify",    "spotify",  NULL,       1 << 2,       0,           -1 },
 	{ "code-oss",   NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "Gimp",       NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "discord",    NULL,       NULL,       1 << 6,       0,           -1 },
-    { "Spotify",    NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "discord",    NULL,       NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
