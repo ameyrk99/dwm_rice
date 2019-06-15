@@ -93,12 +93,13 @@ function gitpush() {
 export BROWSER=/usr/bin/firefox
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
-# # Android
-# export ANDROID_HOME=$HOME/Android/Sdk
-# export PATH=$PATH:$ANDROID_HOME/emulator
-# export PATH=$PATH:$ANDROID_HOME/tools
-# export PATH=$PATH:$ANDROID_HOME/tools/bin
-# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# Android
+export _JAVA_AWT_WM_NONREPARENTING=1
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Go
 export GOPATH=$HOME/go

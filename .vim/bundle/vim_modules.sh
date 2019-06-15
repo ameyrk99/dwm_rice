@@ -15,3 +15,4 @@ git clone https://github.com/terryma/vim-multiple-cursors.git
 git clone https://github.com/mhinz/vim-startify.git
 git clone https://github.com/Valloric/YouCompleteMe.git
 git clone https://github.com/fatih/vim-go.git
+git clone https://github.com/scrooloose/nerdtree.git
