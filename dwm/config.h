@@ -24,12 +24,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class        instance    title       tags mask     isfloating   monitor */
-	{ "Firefox",    NULL,       NULL,       1 << 1,       0,           -1 },
-    { "Spotify",    "spotify",  NULL,       1 << 2,       0,           -1 },
-	{ "code-oss",   NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "Gimp",       NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "discord",    NULL,       NULL,       1 << 5,       0,           -1 },
+	/* class                instance    title       tags mask     isfloating   monitor */
+	{ "Firefox",            NULL,       NULL,       1 << 1,       0,           -1 },
+    { "Spotify",            "spotify",  NULL,       1 << 2,       0,           -1 },
+	{ "code-oss",           NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "Gimp",               NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "discord",            NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "vlc",                NULL,       NULL,       1 << 6,       1,           -1 },
+	{ "lazyman-LazyMan",    NULL,       NULL,       1 << 6,       1,           -1 },
 };
 
 /* layout(s) */
