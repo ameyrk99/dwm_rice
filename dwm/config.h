@@ -31,7 +31,6 @@ static const Rule rules[] = {
 	{ "Gimp",               NULL,       NULL,       1 << 4,       0,           -1 },
 	{ "discord",            NULL,       NULL,       1 << 5,       0,           -1 },
 	{ "vlc",                NULL,       NULL,       1 << 6,       1,           -1 },
-	{ "lazyman-LazyMan",    NULL,       NULL,       1 << 6,       1,           -1 },
 };
 
 /* layout(s) */
