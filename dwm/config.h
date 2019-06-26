@@ -6,8 +6,9 @@ static const unsigned int snap      = 30;       /* snap pixel */
 static const unsigned int gappx     = 10;        /* Gap size */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "IBM 3270:size=14" };
-static const char dmenufont[]       = "IBM 3270:size=14";
+static const char *fonts[]          = { "Monofur:size=14", "IBM 3270:size=14" };
+static const char dmenufont[]       = "Monofur:size=14";
+/* static const char dmenufont[]       = "IBM 3270:size=14"; */
 
 #include "/home/mark/.dwm/colors.h"
 static const char *colors[][3]      = {
@@ -24,13 +25,16 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                instance    title       tags mask     isfloating   monitor */
-	{ "Firefox",            NULL,       NULL,       1 << 1,       0,           -1 },
-    { "Spotify",            "spotify",  NULL,       1 << 2,       0,           -1 },
-	{ "code-oss",           NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "Gimp",               NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "discord",            NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "vlc",                NULL,       NULL,       1 << 6,       1,           -1 },
+	/* class                instance    title                   tags mask     isfloating   monitor */
+	{ "Firefox",            NULL,       NULL,                   1 << 1,       0,           -1 },
+	{ "Google-chrome",      NULL,       NULL,                   1 << 1,       0,           -1 },
+	{ NULL,                 NULL,       "Picture in picture",   1 << 1,       1,           -1 },
+    { "Spotify",            "spotify",  NULL,                   1 << 2,       0,           -1 },
+	{ "code-oss",           NULL,       NULL,                   1 << 3,       0,           -1 },
+	{ "Gimp",               NULL,       NULL,                   1 << 4,       0,           -1 },
+	{ "discord",            NULL,       NULL,                   1 << 5,       0,           -1 },
+	{ "Lazyman-lazyman",    NULL,       NULL,                   1 << 6,       1,           -1 },
+	{ "vlc",                NULL,       NULL,                   1 << 6,       1,           -1 },
 };
 
 /* layout(s) */
@@ -69,6 +73,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "termite", NULL };
 static const char *alttermcmd[]  = { "urxvt", NULL };
 
+static const char *gchromecmd[] = { "google-chrome-stable", NULL };
 static const char *ffoxcmd[] = { "firefox", NULL };
 static const char *filescmd[] = { "nautilus", NULL };
 static const char *rangercmd[] = { "urxvt", "-e", "ranger", NULL };
@@ -93,6 +98,7 @@ static Key keys[] = {
 	{ MODSUP,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alttermcmd } },
     { MODSUP,                       XK_f,      spawn,          {.v = ffoxcmd } },
+    { MODSUP,                       XK_g,      spawn,          {.v = gchromecmd } },
     { MODSUP,                       XK_n,      spawn,          {.v = filescmd } },
     { MODSUP,                       XK_w,      spawn,          {.v = rangercmd } },
     { MODSUP,                       XK_i,      spawn,          {.v = htopcmd } },
@@ -112,7 +118,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },

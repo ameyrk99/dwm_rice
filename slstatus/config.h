@@ -62,14 +62,9 @@ static const char unknown_str[] = "NA";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-    /* function         arguments */
-    { ram_perc,         " R %s%% |",        NULL },
-    { cpu_perc,         " C %s%% |",        NULL },
-    { run_command,      " V %s |",          "/home/mark/.dwm/scripts/volume" },
-    { wifi_perc,        " W %s%% |",        "wlp2s0"},
-    { battery_perc,     " B %s%% ",         "BAT0" },
-    { battery_state,    "%s |",             "BAT0" },
-    { username,         " %s",              NULL },
-    { uptime,           " %s |",            NULL },
-    { datetime,         " %s  ",            "%a, %d %b %H:%M" },
+    /* function             arguments */
+    { run_command,          "  VOL %s ",          "/home/mark/.dwm/scripts/volume" },
+    { battery_perc,         " BAT %s",            "BAT0" },
+    { battery_state,        "%s ",              "BAT0" },
+    { datetime,             " %s  ",            "%a, %d %b %H:%M" },
 };

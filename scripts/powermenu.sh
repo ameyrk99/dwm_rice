@@ -1,11 +1,12 @@
 #!/bin/sh
 
 case "$(echo -e "Shutdown\nRestart\nLogout\nSuspend\nLock" | dmenu \
-    -fn "IBM 3270:size=14" \
-    -nb "${COLOR_BACKGROUND:-#292d3e}" \
-    -nf "${COLOR_DEFAULT:-#eceff1}" \
-    -sf "${COLOR_HIGHLIGHT:-#292d3e}" \
-    -sb "#c3e88d" \
+    -fn "Monofur:size=14" \
+    -nb "${COLOR_BACKGROUND:-#f2e5bc}" \
+    -nb "${COLOR_BACKGROUND:-#f2e5bc}" \
+    -nf "${COLOR_DEFAULT:-#3c3836}" \
+    -sf "${COLOR_HIGHLIGHT:-#f2e5bc}" \
+    -sb "#458588" \
     -i -p \
     "Power:" )" in
         Shutdown) exec systemctl poweroff;;

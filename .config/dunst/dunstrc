@@ -3,7 +3,7 @@
     allow_markup = yes
     bounce_freq = 0
     browser = /usr/bin/firefox --new-tab
-    dmenu = /usr/bin/dmenu -fn "IBM 3270:size=14" -nb "#292d3e" -nb "#292d3e" -nf "#eceff1" -sf "#292d3e" -sb "#c3e88d" -p dunst:
+    dmenu = /usr/bin/dmenu -fn "Monofur:size=14" -nb "#292d3e" -nb "#292d3e" -nf "#eceff1" -sf "#292d3e" -sb "#c3e88d" -p dunst:
     follow = none
     font = IBM 3270 12
     format = "<b>%a\n</b><i>%s\n</i>%b"
@@ -31,9 +31,9 @@
     transparency = 0
     word_wrap = no
 
-# [frame]
-#     width = 2
-#     color = "#c782ea"
+[frame]
+    width = 2
+    color = "#3c3836"
 
 [shortcuts]
     close = mod4+x
@@ -42,17 +42,17 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#292d3e"
-    foreground = "#c3e88d"
+    background = "#f2e5bc"
+    foreground = "#3c3836"
     timeout = 8
 
 [urgency_normal]
-    background = "#292d3e"
-    foreground = "#c3e88d"
+    background = "#f2e5bc"
+    foreground = "#3c3836"
     timeout = 10
 
 [urgency_critical]
     background = "#ff5370"
-    foreground = "#292d3e"
+    foreground = "#3c3836"
     timeout = 13
 
