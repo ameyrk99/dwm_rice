@@ -1,0 +1,634 @@
+--- st_org/config.def.h	2020-04-05 11:10:08.339022241 -0500
++++ st/config.def.h	2020-04-23 21:58:35.962165881 -0500
+@@ -5,8 +5,12 @@
+  *
+  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+  */
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+-static int borderpx = 2;
++/* static char *font = "Monofur:size=14:antialias=true:autohint=true"; */
++/* static char *font = "Cascadia Code:size=13:antialias=true:autohint=true"; */
++static char *font = "Hermit-Regular:size=12:antialias=true:autohint=true";
++/* static char *font = "saxMono:size=13:antialias=true:autohint=true"; */
++/* static char *font = "Input:size=12:antialias=true:autohint=true"; */
++static int borderpx = 10;
+ 
+ /*
+  * What program is execed by st depends of these precedence rules:
+@@ -80,49 +84,95 @@
+  *
+  *	stty tabs
+  */
+-unsigned int tabspaces = 8;
++unsigned int tabspaces = 4;
++
++// static const char *colorname[] = {
++//     Gruvbox
++//     "#282828",
++//     "#cc241d",
++//     "#98971a",
++//     "#d79921",
++//     "#458588",
++//     "#b16286",
++//     "#689d6a",
++//     "#a89984",
++//     "#928374",
++//     "#fb4934",
++//     "#b8bb26",
++//     "#fabd2f",
++//     "#83a598",
++//     "#d3869b",
++//     "#8ec07c",
++//     "#ebdbb2",
++//
++//     [255] = 0,
++//
++//     [256] = "#cccccc",
++//     [257] = "#555555",
++// };
+ 
+ /* Terminal colors (16 first used in escape sequence) */
+ static const char *colorname[] = {
+-	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
+-
+-	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
+-
+-	[255] = 0,
+-
+-	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+-};
+ 
++  /* 8 normal colors */
++/*   [0] = "#565575", [> black   <]
++ *   [1] = "#ff8080", [> red     <]
++ *   [2] = "#95ffa4", [> green   <]
++ *   [3] = "#ffe9aa", [> yellow  <]
++ *   [4] = "#91ddff", [> blue    <]
++ *   [5] = "#c991e1", [> magenta <]
++ *   [6] = "#aaffe4", [> cyan    <]
++ *   [7] = "#cbe3e7", [> white   <]
++ *
++ *   [> 8 bright colors <]
++ *   [8]  = "#100e23", [> black   <]
++ *   [9]  = "#ff5458", [> red     <]
++ *   [10] = "#62d196", [> green   <]
++ *   [11] = "#ffb378", [> yellow  <]
++ *   [12] = "#65b2ff", [> blue    <]
++ *   [13] = "#906cff", [> magenta <]
++ *   [14] = "#63f2f1", [> cyan    <]
++ *   [15] = "#a6b3cc", [> white   <]
++ *
++ *   [> special colors <]
++ *   [256] = "#1e1c31", [> background <]
++ *   [257] = "#cbe3e7", [> foreground <] */
++
++  /* 8 normal colors */
++  [0] = "#1c1c1c", /* black   */
++  [1] = "#d75f5f", /* red     */
++  [2] = "#72a25a", /* green   */
++  [3] = "#d8ad4c", /* yellow  */
++  [4] = "#597bc5", /* blue    */
++  [5] = "#8787af", /* magenta */
++  [6] = "#4a8382", /* cyan    */
++  [7] = "#adadad", /* white   */
++
++  /* 8 bright colors */
++  [8]  = "#3b3b3b", /* black   */
++  [9]  = "#ffb964", /* red     */
++  [10] = "#99ad6a", /* green   */
++  [11] = "#fad07a", /* yellow  */
++  [12] = "#8197bf", /* blue    */
++  [13] = "#d7afff", /* magenta */
++  [14] = "#8fbfdc", /* cyan    */
++  [15] = "#e8e8de", /* white   */
++
++  /* special colors */
++  [256] = "#121212", /* background */
++  [257] = "#adadad", /* foreground */
++};
+ 
+ /*
+  * Default colors (colorname index)
+- * foreground, background, cursor, reverse cursor
++ * foreground, background, cursor
+  */
+-unsigned int defaultfg = 7;
+-unsigned int defaultbg = 0;
+-static unsigned int defaultcs = 256;
+-static unsigned int defaultrcs = 257;
++unsigned int defaultfg  = 257;
++unsigned int defaultbg  = 256;
++static unsigned int defaultcs  = 257;
++static unsigned int defaultrcs = 256;
+ 
+-/*
+- * Default shape of cursor
++/* Default shape of cursor
+  * 2: Block ("█")
+  * 4: Underline ("_")
+  * 6: Bar ("|")
+@@ -133,7 +183,6 @@
+ /*
+  * Default columns and rows numbers
+  */
+-
+ static unsigned int cols = 80;
+ static unsigned int rows = 24;
+ 
+@@ -184,8 +233,11 @@
+ 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
+ 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
+ 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
++	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
++	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+ 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+ 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
++	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
+ };
+ 
+ /*
+@@ -203,6 +255,10 @@
+  * * 0: no value
+  * * > 0: cursor application mode enabled
+  * * < 0: cursor application mode disabled
++ * crlf value
++ * * 0: no value
++ * * > 0: crlf mode is enabled
++ * * < 0: crlf mode is disabled
+  *
+  * Be careful with the order of the definitions because st searches in
+  * this table sequentially, so any XK_ANY_MOD must be in the last
+--- st_org/st.h	2020-04-05 11:10:08.342355575 -0500
++++ st/st.h	2020-04-05 11:27:35.525680322 -0500
+@@ -81,10 +81,13 @@
+ void redraw(void);
+ void draw(void);
+ 
++void kscrolldown(const Arg *);
++void kscrollup(const Arg *);
+ void printscreen(const Arg *);
+ void printsel(const Arg *);
+ void sendbreak(const Arg *);
+ void toggleprinter(const Arg *);
++void copyurl(const Arg *);
+ 
+ int tattrset(int);
+ void tnew(int, int);
+--- st_org/st.c	2020-04-05 11:10:08.342355575 -0500
++++ st/st.c	2020-04-05 11:27:35.529013656 -0500
+@@ -35,6 +35,7 @@
+ #define ESC_ARG_SIZ   16
+ #define STR_BUF_SIZ   ESC_BUF_SIZ
+ #define STR_ARG_SIZ   ESC_ARG_SIZ
++#define HISTSIZE      2000
+ 
+ /* macros */
+ #define IS_SET(flag)		((term.mode & (flag)) != 0)
+@@ -42,6 +43,9 @@
+ #define ISCONTROLC1(c)		(BETWEEN(c, 0x80, 0x9f))
+ #define ISCONTROL(c)		(ISCONTROLC0(c) || ISCONTROLC1(c))
+ #define ISDELIM(u)		(u && wcschr(worddelimiters, u))
++#define TLINE(y)		((y) < term.scr ? term.hist[((y) + term.histi - \
++				term.scr + HISTSIZE + 1) % HISTSIZE] : \
++				term.line[(y) - term.scr])
+ 
+ enum term_mode {
+ 	MODE_WRAP        = 1 << 0,
+@@ -117,6 +121,9 @@
+ 	int col;      /* nb col */
+ 	Line *line;   /* screen */
+ 	Line *alt;    /* alternate screen */
++	Line hist[HISTSIZE]; /* history buffer */
++	int histi;    /* history index */
++	int scr;      /* scroll back */
+ 	int *dirty;   /* dirtyness of lines */
+ 	TCursor c;    /* cursor */
+ 	int ocx;      /* old cursor col */
+@@ -185,8 +192,8 @@
+ static void tputtab(int);
+ static void tputc(Rune);
+ static void treset(void);
+-static void tscrollup(int, int);
+-static void tscrolldown(int, int);
++static void tscrollup(int, int, int);
++static void tscrolldown(int, int, int);
+ static void tsetattr(int *, int);
+ static void tsetchar(Rune, Glyph *, int, int);
+ static void tsetdirt(int, int);
+@@ -201,6 +208,8 @@
+ static int32_t tdefcolor(int *, int *, int);
+ static void tdeftran(char);
+ static void tstrsequence(uchar);
++static void tsetcolor(int, int, int, uint32_t, uint32_t);
++static char * findlastany(char *, const char**, size_t);
+ 
+ static void drawregion(int, int, int, int);
+ 
+@@ -414,10 +423,10 @@
+ {
+ 	int i = term.col;
+ 
+-	if (term.line[y][i - 1].mode & ATTR_WRAP)
++	if (TLINE(y)[i - 1].mode & ATTR_WRAP)
+ 		return i;
+ 
+-	while (i > 0 && term.line[y][i - 1].u == ' ')
++	while (i > 0 && TLINE(y)[i - 1].u == ' ')
+ 		--i;
+ 
+ 	return i;
+@@ -526,7 +535,7 @@
+ 		 * Snap around if the word wraps around at the end or
+ 		 * beginning of a line.
+ 		 */
+-		prevgp = &term.line[*y][*x];
++		prevgp = &TLINE(*y)[*x];
+ 		prevdelim = ISDELIM(prevgp->u);
+ 		for (;;) {
+ 			newx = *x + direction;
+@@ -541,14 +550,14 @@
+ 					yt = *y, xt = *x;
+ 				else
+ 					yt = newy, xt = newx;
+-				if (!(term.line[yt][xt].mode & ATTR_WRAP))
++				if (!(TLINE(yt)[xt].mode & ATTR_WRAP))
+ 					break;
+ 			}
+ 
+ 			if (newx >= tlinelen(newy))
+ 				break;
+ 
+-			gp = &term.line[newy][newx];
++			gp = &TLINE(newy)[newx];
+ 			delim = ISDELIM(gp->u);
+ 			if (!(gp->mode & ATTR_WDUMMY) && (delim != prevdelim
+ 					|| (delim && gp->u != prevgp->u)))
+@@ -569,14 +578,14 @@
+ 		*x = (direction < 0) ? 0 : term.col - 1;
+ 		if (direction < 0) {
+ 			for (; *y > 0; *y += direction) {
+-				if (!(term.line[*y-1][term.col-1].mode
++				if (!(TLINE(*y-1)[term.col-1].mode
+ 						& ATTR_WRAP)) {
+ 					break;
+ 				}
+ 			}
+ 		} else if (direction > 0) {
+ 			for (; *y < term.row-1; *y += direction) {
+-				if (!(term.line[*y][term.col-1].mode
++				if (!(TLINE(*y)[term.col-1].mode
+ 						& ATTR_WRAP)) {
+ 					break;
+ 				}
+@@ -607,13 +616,13 @@
+ 		}
+ 
+ 		if (sel.type == SEL_RECTANGULAR) {
+-			gp = &term.line[y][sel.nb.x];
++			gp = &TLINE(y)[sel.nb.x];
+ 			lastx = sel.ne.x;
+ 		} else {
+-			gp = &term.line[y][sel.nb.y == y ? sel.nb.x : 0];
++			gp = &TLINE(y)[sel.nb.y == y ? sel.nb.x : 0];
+ 			lastx = (sel.ne.y == y) ? sel.ne.x : term.col-1;
+ 		}
+-		last = &term.line[y][MIN(lastx, linelen-1)];
++		last = &TLINE(y)[MIN(lastx, linelen-1)];
+ 		while (last >= gp && last->u == ' ')
+ 			--last;
+ 
+@@ -836,6 +845,9 @@
+ ttywrite(const char *s, size_t n, int may_echo)
+ {
+ 	const char *next;
++	Arg arg = (Arg) { .i = term.scr };
++
++	kscrolldown(&arg);
+ 
+ 	if (may_echo && IS_SET(MODE_ECHO))
+ 		twrite(s, n, 1);
+@@ -1045,15 +1057,53 @@
+ 	term.mode ^= MODE_ALTSCREEN;
+ 	tfulldirt();
+ }
++void
++kscrolldown(const Arg* a)
++{
++	int n = a->i;
++
++	if (n < 0)
++		n = term.row + n;
++
++	if (n > term.scr)
++		n = term.scr;
++
++	if (term.scr > 0) {
++		term.scr -= n;
++		selscroll(0, -n);
++		tfulldirt();
++	}
++}
+ 
+ void
+-tscrolldown(int orig, int n)
++kscrollup(const Arg* a)
++{
++	int n = a->i;
++	if (n < 0)
++		n = term.row + n;
++
++	if (term.scr <= HISTSIZE-n) {
++		term.scr += n;
++		selscroll(0, n);
++		tfulldirt();
++	}
++}
++
++void
++tscrolldown(int orig, int n, int copyhist)
+ {
+ 	int i;
+ 	Line temp;
+ 
+ 	LIMIT(n, 0, term.bot-orig+1);
+ 
++	if (copyhist) {
++		term.histi = (term.histi - 1 + HISTSIZE) % HISTSIZE;
++		temp = term.hist[term.histi];
++		term.hist[term.histi] = term.line[term.bot];
++		term.line[term.bot] = temp;
++	}
++
+ 	tsetdirt(orig, term.bot-n);
+ 	tclearregion(0, term.bot-n+1, term.col-1, term.bot);
+ 
+@@ -1067,13 +1117,23 @@
+ }
+ 
+ void
+-tscrollup(int orig, int n)
++tscrollup(int orig, int n, int copyhist)
+ {
+ 	int i;
+ 	Line temp;
+ 
+ 	LIMIT(n, 0, term.bot-orig+1);
+ 
++	if (copyhist) {
++		term.histi = (term.histi + 1) % HISTSIZE;
++		temp = term.hist[term.histi];
++		term.hist[term.histi] = term.line[orig];
++		term.line[orig] = temp;
++	}
++
++	if (term.scr > 0 && term.scr < HISTSIZE)
++		term.scr = MIN(term.scr + n, HISTSIZE-1);
++
+ 	tclearregion(0, orig, term.col-1, orig+n-1);
+ 	tsetdirt(orig+n, term.bot);
+ 
+@@ -1122,7 +1182,7 @@
+ 	int y = term.c.y;
+ 
+ 	if (y == term.bot) {
+-		tscrollup(term.top, 1);
++		tscrollup(term.top, 1, 1);
+ 	} else {
+ 		y++;
+ 	}
+@@ -1287,14 +1347,14 @@
+ tinsertblankline(int n)
+ {
+ 	if (BETWEEN(term.c.y, term.top, term.bot))
+-		tscrolldown(term.c.y, n);
++		tscrolldown(term.c.y, n, 0);
+ }
+ 
+ void
+ tdeleteline(int n)
+ {
+ 	if (BETWEEN(term.c.y, term.top, term.bot))
+-		tscrollup(term.c.y, n);
++		tscrollup(term.c.y, n, 0);
+ }
+ 
+ int32_t
+@@ -1725,11 +1785,11 @@
+ 		break;
+ 	case 'S': /* SU -- Scroll <n> line up */
+ 		DEFAULT(csiescseq.arg[0], 1);
+-		tscrollup(term.top, csiescseq.arg[0]);
++		tscrollup(term.top, csiescseq.arg[0], 0);
+ 		break;
+ 	case 'T': /* SD -- Scroll <n> line down */
+ 		DEFAULT(csiescseq.arg[0], 1);
+-		tscrolldown(term.top, csiescseq.arg[0]);
++		tscrolldown(term.top, csiescseq.arg[0], 0);
+ 		break;
+ 	case 'L': /* IL -- Insert <n> blank lines */
+ 		DEFAULT(csiescseq.arg[0], 1);
+@@ -2235,7 +2295,7 @@
+ 		return 0;
+ 	case 'D': /* IND -- Linefeed */
+ 		if (term.c.y == term.bot) {
+-			tscrollup(term.top, 1);
++			tscrollup(term.top, 1, 1);
+ 		} else {
+ 			tmoveto(term.c.x, term.c.y+1);
+ 		}
+@@ -2248,7 +2308,7 @@
+ 		break;
+ 	case 'M': /* RI -- Reverse index */
+ 		if (term.c.y == term.top) {
+-			tscrolldown(term.top, 1);
++			tscrolldown(term.top, 1, 1);
+ 		} else {
+ 			tmoveto(term.c.x, term.c.y-1);
+ 		}
+@@ -2469,7 +2529,7 @@
+ void
+ tresize(int col, int row)
+ {
+-	int i;
++	int i, j;
+ 	int minrow = MIN(row, term.row);
+ 	int mincol = MIN(col, term.col);
+ 	int *bp;
+@@ -2506,6 +2566,14 @@
+ 	term.dirty = xrealloc(term.dirty, row * sizeof(*term.dirty));
+ 	term.tabs = xrealloc(term.tabs, col * sizeof(*term.tabs));
+ 
++	for (i = 0; i < HISTSIZE; i++) {
++		term.hist[i] = xrealloc(term.hist[i], col * sizeof(Glyph));
++		for (j = mincol; j < col; j++) {
++			term.hist[i][j] = term.c.attr;
++			term.hist[i][j].u = ' ';
++		}
++	}
++
+ 	/* resize each row to new width, zero-pad if needed */
+ 	for (i = 0; i < minrow; i++) {
+ 		term.line[i] = xrealloc(term.line[i], col * sizeof(Glyph));
+@@ -2563,7 +2631,7 @@
+ 			continue;
+ 
+ 		term.dirty[y] = 0;
+-		xdrawline(term.line[y], x1, y, x2);
++		xdrawline(TLINE(y), x1, y, x2);
+ 	}
+ }
+ 
+@@ -2584,7 +2652,8 @@
+ 		cx--;
+ 
+ 	drawregion(0, 0, term.col, term.row);
+-	xdrawcursor(cx, term.c.y, term.line[term.c.y][cx],
++	if (term.scr == 0)
++		xdrawcursor(cx, term.c.y, term.line[term.c.y][cx],
+ 			term.ocx, term.ocy, term.line[term.ocy][term.ocx]);
+ 	term.ocx = cx, term.ocy = term.c.y;
+ 	xfinishdraw();
+@@ -2597,3 +2666,125 @@
+ 	tfulldirt();
+ 	draw();
+ }
++
++void
++tsetcolor( int row, int start, int end, uint32_t fg, uint32_t bg )
++{
++	int i = start;
++	for( ; i < end; ++i )
++	{
++		term.line[row][i].fg = fg;
++		term.line[row][i].bg = bg;
++	}
++}
++
++char *
++findlastany(char *str, const char** find, size_t len)
++{
++	char* found = NULL;
++	int i = 0;
++	for(found = str + strlen(str) - 1; found >= str; --found) {
++		for(i = 0; i < len; i++) {
++			if(strncmp(found, find[i], strlen(find[i])) == 0) {
++				return found;
++			}
++		}
++	}
++
++	return NULL;
++}
++
++/*
++** Select and copy the previous url on screen (do nothing if there's no url).
++**
++** FIXME: doesn't handle urls that span multiple lines; will need to add support
++**        for multiline "getsel()" first
++*/
++void
++copyurl(const Arg *arg) {
++	/* () and [] can appear in urls, but excluding them here will reduce false
++	 * positives when figuring out where a given url ends.
++	 */
++	static char URLCHARS[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
++		"abcdefghijklmnopqrstuvwxyz"
++		"0123456789-._~:/?#@!$&'*+,;=%";
++
++	static const char* URLSTRINGS[] = {"http://", "https://"};
++
++	/* remove highlighting from previous selection if any */
++	if(sel.ob.x >= 0 && sel.oe.x >= 0)
++		tsetcolor(sel.nb.y, sel.ob.x, sel.oe.x + 1, defaultfg, defaultbg);
++
++	int i = 0,
++		row = 0, /* row of current URL */
++		col = 0, /* column of current URL start */
++		startrow = 0, /* row of last occurrence */
++		colend = 0, /* column of last occurrence */
++		passes = 0; /* how many rows have been scanned */
++
++	char *linestr = calloc(sizeof(char), term.col+1); /* assume ascii */
++	char *c = NULL,
++		 *match = NULL;
++
++	row = (sel.ob.x >= 0 && sel.nb.y > 0) ? sel.nb.y : term.bot;
++	LIMIT(row, term.top, term.bot);
++	startrow = row;
++
++	colend = (sel.ob.x >= 0 && sel.nb.y > 0) ? sel.nb.x : term.col;
++	LIMIT(colend, 0, term.col);
++
++	/*
++ 	** Scan from (term.bot,term.col) to (0,0) and find
++	** next occurrance of a URL
++	*/
++	while(passes !=term.bot + 2) {
++		/* Read in each column of every row until
++ 		** we hit previous occurrence of URL
++		*/
++		for (col = 0, i = 0; col < colend; ++col,++i) {
++			/* assume ascii */
++			if (term.line[row][col].u > 127)
++				continue;
++			linestr[i] = term.line[row][col].u;
++		}
++		linestr[term.col] = '\0';
++
++		if ((match = findlastany(linestr, URLSTRINGS,
++						sizeof(URLSTRINGS)/sizeof(URLSTRINGS[0]))))
++			break;
++
++		if (--row < term.top)
++			row = term.bot;
++
++		colend = term.col;
++		passes++;
++	};
++
++	if (match) {
++		/* must happen before trim */
++		selclear();
++		sel.ob.x = strlen(linestr) - strlen(match);
++
++		/* trim the rest of the line from the url match */
++		for (c = match; *c != '\0'; ++c)
++			if (!strchr(URLCHARS, *c)) {
++				*c = '\0';
++				break;
++			}
++
++		/* highlight selection by inverting terminal colors */
++		tsetcolor(row, sel.ob.x, sel.ob.x + strlen( match ), defaultbg, defaultfg);
++
++		/* select and copy */
++		sel.mode = 1;
++		sel.type = SEL_REGULAR;
++		sel.oe.x = sel.ob.x + strlen(match)-1;
++		sel.ob.y = sel.oe.y = row;
++		selnormalize();
++		tsetdirt(sel.nb.y, sel.ne.y);
++		xsetsel(getsel());
++		xclipcopy();
++	}
++
++	free(linestr);
++}

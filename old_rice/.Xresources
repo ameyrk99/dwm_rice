@@ -1,0 +1,106 @@
+!--------------!
+! URXVT CONFIG !
+!--------------!
+
+URxvt.internalBorder:	0
+URxvt.scrollBar:	false
+URxvt.letterSpace:	-1
+URxvt.cursorColor:	#f1f1f0
+URxvt.font: xft:Monofur:size=14, xft:IBM 3270:size=14, xft:Fira Mono:size=11, xft:Font Awesome 5 Free Solid:size=10
+!! Larger history limit
+urxvt.saveLines: 1000000
+
+!! Perl extensions
+urxvt.perl-ext-common: default,matcher,font-size,clipboard
+!! Open urls in browser with Control-Click
+urxvt.urlLauncher: /usr/bin/firefox
+urxvt.matcher.button: C1
+!! Change font size on Control-Plus/Minus
+URxvt.keysym.Control-0x2b: perl:font-size:increase
+URxvt.keysym.Control-0x2d: perl:font-size:decrease
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.m-c: perl:clipboard:copy
+URxvt.keysym.m-v: perl:clipboard:paste
+
+! YoRHa
+! special
+*.foreground:   #3c3836
+*.background:   #f2e5bc
+*.cursorColor:  #3c3836
+
+! black
+*.color0:       #fbf1c7
+*.color8:       #928374
+
+! red
+*.color1:       #cc241d
+*.color9:       #9d0006
+
+! green
+*.color2:       #98971a
+*.color10:      #79740e
+
+! yellow
+*.color3:       #d79921
+*.color11:      #b57614
+
+! blue
+*.color4:       #458588
+*.color12:      #076678
+
+! magenta
+*.color5:       #b16286
+*.color13:      #8f3f71
+
+! cyan
+*.color6:       #689d6a
+*.color14:      #427b58
+
+! white
+*.color7:       #7c6f64
+*.color15:      #3c3836
+
+! Palenight
+! special
+! *.foreground:   #eceff1
+! *.background:   #292d3e
+! *.cursorColor:  #eceff1
+! 
+! ! black
+! *.color0:       #546e7a
+! *.color8:       #546e7a
+! 
+! ! red
+! *.color1:       #ff5370
+! *.color9:       #ff5370
+! 
+! ! green
+! *.color2:       #c3e88d
+! *.color10:      #c3e88d
+! 
+! ! yellow
+! *.color3:       #ffcb6b
+! *.color11:      #ffcb6b
+! 
+! ! blue
+! *.color4:       #82aaff
+! *.color12:      #82aaff
+! 
+! ! magenta
+! *.color5:       #c792ea
+! *.color13:      #c792ea
+! 
+! ! cyan
+! *.color6:       #89ddff
+! *.color14:      #89ddff
+! 
+! ! white
+! *.color7:       #ffffff
+! *.color15:      #ffffff
+
+
+! Black color that will not be affected by bold highlighting.
+*.color66: #000000
+*color66:  #000000
+

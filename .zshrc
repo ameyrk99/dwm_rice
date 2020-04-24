@@ -7,7 +7,7 @@ export ZSH="/home/mark/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="ys"
+ZSH_THEME="terminalparty"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -64,47 +64,57 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Change terminal colors
-# (cat ~/.cache/wal/sequences &)
+alias mv="mv -i"
+alias rm="rm -i"
+
+alias vim="nvim"
+alias v="nvim"
+alias d="ranger"
+alias term="st -e &"
 
 # alias colorpanes="~/.i3/scripts/colorpanes.sh"
-alias uta="cd ~/UTA"
-alias omega="ssh ark7991@omega.uta.edu"
+alias uta="cd ~/Work/spr2020"
 alias :q="exit"
-alias weather="curl -s https://us.wttr.in  | head -n 17"
+alias :wq="echo This isn\'t vim, dumbass | cowsay"
 alias swm="sudo wifi-menu"
+alias setbg="~/.dotfiles/scripts/wallpaper.sh"
 
-# wall
-# alias wal2b="wal -q -i ~/.i3/wallpapers/fan_art/2B.png"
-# alias wal2bv="wal -q -i ~/.i3/wallpapers/2bvapor.png"
-# alias walmr="wal -q -i ~/.i3/wallpapers/fan_art/mercylix.jpg"
-# alias walme="wal -q -i ~/.i3/wallpapers/mercyevil.png"
-# alias walnr="wal -q -i ~/.i3/wallpapers/fan_art/narugang.png"
-# alias waldk="wal -q -i ~/.i3/wallpapers/fan_art/adk.jpg"
-# alias waldual="wal -q -i ~/.i3/wallpapers/tigre.png"
+# pacman
+alias pacget="sudo pacman -S"
+alias pacrm="sudo pacman -Rns"
+alias pacstat="yay -Ps"
 
-function gitpush() {
-    git status
-    git add .
-    git commit -m $1
-    git push origin $2
-}
+# Git
+alias gc="git clone"
+alias gs="git status"
+alias ga="git add"
+alias gm="git commit -m"
 
 export BROWSER=/usr/bin/firefox
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
+VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
+
+# Java
+# export PATH=$PATH:/usr/lib/jvm/java-12-openjdk/bin/
 
 # Android
-export _JAVA_AWT_WM_NONREPARENTING=1
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export _JAVA_AWT_WM_NONREPARENTING=1
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Go
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOPATH:$GOBIN:$PATH
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# ignore files for nvim and vim
+zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf|db|pyc|out):source-files' '*:all-files'
+zstyle ':completion:*:*:nvim:*' file-patterns '^*.(aux|log|pdf|db|pyc|out):source-files' '*:all-files'
+
+# Make cow say short and offensive things from fortune
+# fortune -so | cowsay
+# echo DWM | figlet | lolcat
+# echo DWM | figlet
 

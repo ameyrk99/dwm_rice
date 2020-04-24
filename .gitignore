@@ -1,16 +1,1 @@
-*/*
-
-!guides/*
-!scripts/*
-!wallpapers/*
-!.vim/*
-!.config/*
-!.fonts/*
-
-!.vim/bundle/vim_modules.sh
-
-!dwm/config.h
-!dwm/patches/
-!slock/config.h
-!slstatus/config.h
-!st/config.h
+.config/ranger/plugins/__pycache__

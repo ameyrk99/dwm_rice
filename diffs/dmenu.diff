@@ -1,0 +1,86 @@
+--- dmenu_org/config.def.h	2020-04-14 09:19:51.719896844 -0500
++++ dmenu/config.def.h	2020-04-23 21:58:29.885544659 -0500
+@@ -4,17 +4,19 @@
+ static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
+ /* -fn option overrides fonts[0]; default X11 font or font set */
+ static const char *fonts[] = {
+-	"monospace:size=10"
++	"Hermit-Regular:size=12:antialias=true:autohint=true"
+ };
+ static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
++#include "../colors.h"
+ static const char *colors[SchemeLast][2] = {
+-	/*     fg         bg       */
+-	[SchemeNorm] = { "#bbbbbb", "#222222" },
+-	[SchemeSel] = { "#eeeeee", "#005577" },
+-	[SchemeOut] = { "#000000", "#00ffff" },
++	/*               fg         bg       */
++	[SchemeNorm] = { col_foreground, col_background },
++	[SchemeSel]  = { col_background, col_theme },
++	[SchemeOut]  = { col_foreground, col_background },
+ };
+ /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
+ static unsigned int lines      = 0;
++static unsigned int lineheight = 29;         /* -h option; minimum height of a menu line     */
+ 
+ /*
+  * Characters not considered part of a word while deleting words
+--- dmenu_org/dmenu.1	2020-04-14 09:19:51.719896844 -0500
++++ dmenu/dmenu.1	2020-04-05 11:52:53.075668073 -0500
+@@ -50,6 +50,9 @@
+ .BI \-l " lines"
+ dmenu lists items vertically, with the given number of lines.
+ .TP
++.BI \-h " height"
++dmenu uses a menu line of at least 'height' pixels tall, but no less than 8.
++.TP
+ .BI \-m " monitor"
+ dmenu is displayed on the monitor number supplied. Monitor numbers are starting
+ from 0.
+--- dmenu_org/dmenu.c	2020-04-14 09:19:51.719896844 -0500
++++ dmenu/dmenu.c	2020-04-05 11:52:53.075668073 -0500
+@@ -131,7 +131,7 @@
+ {
+ 	unsigned int curpos;
+ 	struct item *item;
+-	int x = 0, y = 0, w;
++	int x = 0, y = 0, fh = drw->fonts->h, w;
+ 
+ 	drw_setscheme(drw, scheme[SchemeNorm]);
+ 	drw_rect(drw, 0, 0, mw, mh, 1, 1);
+@@ -148,7 +148,7 @@
+ 	curpos = TEXTW(text) - TEXTW(&text[cursor]);
+ 	if ((curpos += lrpad / 2 - 1) < w) {
+ 		drw_setscheme(drw, scheme[SchemeNorm]);
+-		drw_rect(drw, x + curpos, 2, 2, bh - 4, 1, 0);
++		drw_rect(drw, x + curpos, 2 + (bh-fh)/2, 2, fh - 4, 1, 0);
+ 	}
+ 
+ 	if (lines > 0) {
+@@ -609,6 +609,7 @@
+ 
+ 	/* calculate menu geometry */
+ 	bh = drw->fonts->h + 2;
++	bh = MAX(bh,lineheight);	/* make a menu line AT LEAST 'lineheight' tall */
+ 	lines = MAX(lines, 0);
+ 	mh = (lines + 1) * bh;
+ #ifdef XINERAMA
+@@ -690,6 +691,7 @@
+ usage(void)
+ {
+ 	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
++	      "             [-h height]\n"
+ 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
+ 	exit(1);
+ }
+@@ -723,6 +725,10 @@
+ 			prompt = argv[++i];
+ 		else if (!strcmp(argv[i], "-fn"))  /* font or font set */
+ 			fonts[0] = argv[++i];
++		else if(!strcmp(argv[i], "-h")) { /* minimum height of one menu line */
++			lineheight = atoi(argv[++i]);
++			lineheight = MAX(lineheight,8); /* reasonable default in case of value too small/negative */
++		}
+ 		else if (!strcmp(argv[i], "-nb"))  /* normal background color */
+ 			colors[SchemeNorm][ColBg] = argv[++i];
+ 		else if (!strcmp(argv[i], "-nf"))  /* normal foreground color */

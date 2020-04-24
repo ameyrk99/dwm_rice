@@ -3,20 +3,22 @@
     allow_markup = yes
     bounce_freq = 0
     browser = /usr/bin/firefox --new-tab
-    dmenu = /usr/bin/dmenu -fn "Monofur:size=14" -nb "#292d3e" -nb "#292d3e" -nf "#eceff1" -sf "#292d3e" -sb "#c3e88d" -p dunst:
+    # dmenu = /usr/local/bin/dmenu -h 29 -fn "Hermit-Regular:size=12" -nb "#121212" -nf "#adadad" -sf "#121212" -sb "#adadad" -p dunst:
+    dmenu = /usr/local/bin/dmenu -p dunst:
     follow = none
-    font = IBM 3270 12
-    format = "<b>%a\n</b><i>%s\n</i>%b"
+    font = Hermit Regular 12
+    format = "<b>%a</b>: %s\n%b"
     icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/apps/
-    # geometry [{width}]x{height}][+/-{x}+/-{y}]
-    geometry = "300x8-9+30"
+    # geometry [{width}x{height}][+/-{x}+/-{y}]
+    # geometry = "350-10+35"
+    geometry = "300x5-7+35"
     history_length = 20
     horizontal_padding = 8
     idle_threshold = 120
     ignore_newline = no
     indicate_hidden = yes
     icons_show = left
-    show_icons = yes
+    show_icons = no
     line_height = 0
     monitor = 0
     padding = 5
@@ -33,26 +35,25 @@
 
 [frame]
     width = 2
-    color = "#3c3836"
+    color = "#adadad"
 
 [shortcuts]
     close = mod4+x
     close_all = mod4+ctrl+x
     history = mod4+grave
-    context = ctrl+shift+period
+    context = mod4+shift+period
 
 [urgency_low]
-    background = "#f2e5bc"
-    foreground = "#3c3836"
+    background = "#121212"
+    foreground = "#adadad"
     timeout = 8
 
 [urgency_normal]
-    background = "#f2e5bc"
-    foreground = "#3c3836"
+    background = "#121212"
+    foreground = "#adadad"
     timeout = 10
 
 [urgency_critical]
-    background = "#ff5370"
-    foreground = "#3c3836"
+    background = "#d75f5f"
+    foreground = "#121212"
     timeout = 13
-

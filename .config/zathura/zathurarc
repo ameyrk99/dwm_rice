@@ -12,9 +12,9 @@ map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
 set recolor true
-set default-bg "#292d3e"
-set default-fg "#eceff1"
-set statusbar-bg "#292d3e"
-set statusbar-fg "#eceff1"
-set recolor-darkcolor "#eceff1"
-set recolor-lightcolor "#292d3e"
+set default-bg "#121212"
+set default-fg "#ababab"
+set statusbar-bg "#121212"
+set statusbar-fg "#ababab"
+set recolor-darkcolor "#ababab"
+set recolor-lightcolor "#121212"
