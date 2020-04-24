@@ -50,7 +50,7 @@ set history=500
 set background=dark
 colorscheme jellybeans
 let g:jellybeans_use_term_italics = 1
-set termguicolors
+" set termguicolors
 
 filetype plugin on
 filetype indent on
