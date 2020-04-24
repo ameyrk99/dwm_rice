@@ -1,5 +1,5 @@
 --- dwm_org/config.def.h	2020-04-05 11:09:42.665689118 -0500
-+++ dwm/config.def.h	2020-04-24 08:59:32.628263751 -0500
++++ dwm/config.def.h	2020-04-24 11:20:16.043418637 -0500
 @@ -1,50 +1,72 @@
  /* See LICENSE file for copyright and license details. */
  
@@ -37,7 +37,7 @@
 +  [SchemeGreen]   = { col_background,  col_green,       col_green },
 +  [SchemeBlue]    = { col_background,  col_blue,        col_blue },
 +  [SchemeMagenta] = { col_background,  col_magenta,     col_magenta },
-+  [SchemeCyan]    = { col_cyan,        col_background,  col_background },
++  [SchemeCyan]    = { col_foreground,  col_cyan,        col_cyan },
  };
  
  /* tagging */
@@ -241,7 +241,7 @@
  };
  
 --- dwm_org/dwm.c	2020-04-05 11:09:42.665689118 -0500
-+++ dwm/dwm.c	2020-04-24 07:50:16.696855333 -0500
++++ dwm/dwm.c	2020-04-24 10:05:14.579111345 -0500
 @@ -49,23 +49,24 @@
  #define CLEANMASK(mask)         (mask & ~(numlockmask|LockMask) & (ShiftMask|ControlMask|Mod1Mask|Mod2Mask|Mod3Mask|Mod4Mask|Mod5Mask))
  #define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->wx+(m)->ww) - MAX((x),(m)->wx)) \
